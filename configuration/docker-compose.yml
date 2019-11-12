@@ -8,7 +8,7 @@ services:
       context: ../gostyle-couponing-api/
       dockerfile: Dockerfile
     image: gostyle-couponing-api:latest
-    restart: on-failure
+    restart: unless-stopped
     volumes:
       - ../gostyle-couponing-api:/usr/src/app
       - /usr/src/app/node_modules
@@ -17,3 +17,15 @@ services:
     # depends_on:
       # - gostyle-database
     command: npm run dev
+
+  gostyle-database:
+    container_name: gostyle-database
+    hostname: gostyle-database
+    image: postgres:9.6.15-alpine
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: gostyle
