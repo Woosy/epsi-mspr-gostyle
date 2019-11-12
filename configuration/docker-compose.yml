@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  gostyle-couponing-api:
+    container_name: gostyle-couponing-api
+    hostname: gostyle-couponing-api
+    build:
+      context: ../gostyle-couponing-api/
+      dockerfile: Dockerfile
+    image: gostyle-couponing-api:latest
+    restart: on-failure
+    volumes:
+      - ../gostyle-couponing-api:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3333:3333"
+    # depends_on:
+      # - gostyle-database
+    command: npm run dev
