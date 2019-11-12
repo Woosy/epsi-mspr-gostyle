@@ -1,8 +1,8 @@
 {
-  "name": "adonis-api-app",
-  "version": "4.1.0",
+  "name": "gostyle-api",
+  "version": "0.0.1",
   "adonis-version": "4.1.0",
-  "description": "Adonisjs boilerplate for API server with pre-configured JWT",
+  "description": "GoStyle's Couponing API",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",

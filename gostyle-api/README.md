@@ -1,28 +1,17 @@
-# Adonis API application
+# GoStyle's Couponing API
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
-
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+This is the API used for GoStyle's couponing mobile application.
 
 ## Setup
 
-Use the adonis command to install the blueprint
+Use npm to install app's dependencies
 
 ```bash
-adonis new yardstick --api-only
+npm install
 ```
 
-or manually clone the repo and then run `npm install`.
+And run the following command to start the application
 
-
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
+```bash
+adonis serve --dev
 ```
