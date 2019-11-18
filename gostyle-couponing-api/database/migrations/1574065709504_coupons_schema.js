@@ -9,6 +9,7 @@ class CouponsSchema extends Schema {
       table.increments()
       table.uuid('code')
       table.string('value')
+      table.integer('discount')
       table.dateTime('end').defaultTo(this.fn.now())
       table.timestamps()
     })
