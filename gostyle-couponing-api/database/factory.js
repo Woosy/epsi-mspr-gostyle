@@ -11,11 +11,13 @@
 |
 */
 
-/** @type {import('@adonisjs/lucid/src/Factory')} */
-// const Factory = use('Factory')
+const moment = use('moment')
+const Factory = use('Factory')
 
-// Factory.blueprint('App/Models/User', (faker) => {
-//   return {
-//     username: faker.username()
-//   }
-// })
+Factory.blueprint('App/Models/Coupon', async (faker) => {
+  return {
+    code: faker.guid(),
+    value: faker.word(),
+    end: moment(faker.date({year: 2020})).add(4, 'days').format('YYYY-MM-DD HH:mm:ss'),
+  }
+})
