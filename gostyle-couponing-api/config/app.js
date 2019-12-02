@@ -93,7 +93,18 @@ module.exports = {
     | response.send('Hello', { ignoreEtag: true })
     |
     */
-    etag: false
+    etag: false,
+    
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Logger
+    |--------------------------------------------------------------------------
+    |
+    | Environnement configuration for the http-logger module.
+    |
+    */
+    loggerEnv: ['development', 'production']
   },
 
   views: {
