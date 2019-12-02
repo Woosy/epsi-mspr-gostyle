@@ -1,13 +1,12 @@
 'use strict'
 
-/** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
 class CouponsSchema extends Schema {
   up () {
     this.create('coupons', (table) => {
       table.increments()
-      table.uuid('code')
+      table.string('code')
       table.string('value')
       table.integer('discount')
       table.dateTime('end').defaultTo(this.fn.now())
