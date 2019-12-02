@@ -15,9 +15,8 @@
 
 const packageJson = require('../package.json')
 
-/** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
 Route.get('/', () => ({ version: packageJson.version, uptime: process.uptime() }))
 
-Route.post('/coupon/:code', 'CouponController.getByCode')
+Route.get('/coupon/:code', 'CouponController.getByCode')

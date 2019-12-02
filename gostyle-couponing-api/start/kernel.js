@@ -1,6 +1,5 @@
 'use strict'
 
-/** @type {import('@adonisjs/framework/src/Server')} */
 const Server = use('Server')
 
 /*
@@ -34,10 +33,7 @@ const globalMiddleware = [
 | Route.get().middleware('auth')
 |
 */
-const namedMiddleware = {
-  auth: 'Adonis/Middleware/Auth',
-  guest: 'Adonis/Middleware/AllowGuestOnly'
-}
+const namedMiddleware = {}
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +46,6 @@ const namedMiddleware = {
 |
 */
 const serverMiddleware = [
-  // 'Adonis/Middleware/Static',
   'Adonis/Middleware/Cors'
 ]
 
