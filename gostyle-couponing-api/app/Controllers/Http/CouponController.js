@@ -9,7 +9,8 @@ class CouponController {
    * Retrieves EVERY coupon from the database
    */
   async getAll({}) {
-    const coupons = await Coupon.all()
+    const coupons = {} 
+    coupons.coupons = await Coupon.all()
     return coupons
   }
 
