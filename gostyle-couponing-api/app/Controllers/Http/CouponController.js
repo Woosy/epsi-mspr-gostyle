@@ -6,6 +6,14 @@ const ModelNotFoundException = use('App/Exceptions/ModelNotFoundException')
 class CouponController {
 
   /**
+   * Retrieves EVERY coupon from the database
+   */
+  async getAll({}) {
+    const coupons = await Coupon.all()
+    return coupons
+  }
+
+  /**
    * Retrieves the coupon for a given code
    */
   async getByCode({ params }) {

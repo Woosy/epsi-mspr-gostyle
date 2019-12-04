@@ -19,4 +19,5 @@ const Route = use('Route')
 
 Route.get('/', () => ({ version: packageJson.version, uptime: process.uptime() }))
 
-Route.get('/coupon/:code', 'CouponController.getByCode')
+Route.get('/coupons', 'CouponController.getAll')
+Route.get('/coupons/:code', 'CouponController.getByCode')
