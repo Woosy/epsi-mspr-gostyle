@@ -3,24 +3,18 @@
 const { LogicalException } = require('@adonisjs/generic-exceptions')
 
 class ModelNotFoundException extends LogicalException {
-  
-  constructor (message = 'The requested model cannot be found') {
-    const status = 404
-    const code = 'E_MODEL_NOT_FOUND'
-    
-    super(message, status, code)
-    this.message = message
-  }
-  
+  /**
+   * Handle this exception by itself
+   */
   handle (error, { response }) {
-    response
+    return response
       .status(404)
       .send({
-        error: {
-          code: this.code,
-          status: this.status,
-          detail: this.message,
-        },
+        errors: [{
+          status: 404,
+          code: 'E_MODEL_NOT_FOUND',
+          detail: 'The requested model cannot be found',
+        }],
       })
   }
 }
