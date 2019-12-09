@@ -7,6 +7,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "./node_modules/.bin/adonis serve --dev",
+    "lint": "./node_modules/.bin/eslint ./",
+    "lint:fix": "./node_modules/.bin/eslint ./ --fix",
     "test": "node ace test"
   },
   "keywords": [],
@@ -27,7 +29,13 @@
     "pg": "^7.12.1"
   },
   "devDependencies": {
-    "@adonisjs/cli": "^4.0.12"
+    "@adonisjs/cli": "^4.0.12",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   },
   "autoload": {
     "App": "./app"
