@@ -3,20 +3,18 @@
 const Coupon = use('App/Models/Coupon')
 
 class CouponController {
-
   /**
    * Retrieves EVERY coupon from the database
    */
-  async getAll({}) {
-    const coupons = {} 
-    coupons.coupons = await Coupon.all()
-    return coupons
+  async getAll () {
+    const coupons = await Coupon.all()
+    return { coupons }
   }
 
   /**
    * Retrieves the coupon for a given code
    */
-  async getByCode({ params }) {
+  async getByCode ({ params }) {
     const coupon = await Coupon.findByOrFail('code', params.code)
 
     return {
@@ -31,11 +29,10 @@ class CouponController {
   async create ({ request, response }) {
     // save and get instance back
     const couponData = request.only(['discount', 'value', 'end'])
-    let coupon = await Coupon.create(couponData)
-    coupon = await Coupon.findBy('id', coupon.id)
+    const coupon = await Coupon.create(couponData)
+    await coupon.reload()
     return response.status(201).send({ coupon })
   }
-
 }
 
 module.exports = CouponController

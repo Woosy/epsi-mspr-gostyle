@@ -19,8 +19,8 @@ class ExceptionHandler extends BaseExceptionHandler {
           errors: [{
             status: 404,
             code: 'E_MODEL_NOT_FOUND',
-            detail: 'The requested model cannot be found',
-          }],
+            detail: 'The requested model cannot be found'
+          }]
         })
     }
 
@@ -30,8 +30,8 @@ class ExceptionHandler extends BaseExceptionHandler {
   /**
    * Report exception for logging or debugging.
    */
-  async report (error, { request }) {
-  }
+  // async report (error, { request }) {
+  // }
 }
 
 module.exports = ExceptionHandler

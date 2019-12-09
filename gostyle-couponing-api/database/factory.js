@@ -19,6 +19,6 @@ Factory.blueprint('App/Models/Coupon', async (faker) => {
     code: faker.guid(),
     value: faker.word(),
     discount: faker.integer({ min: 1, max: 99 }),
-    end: moment(faker.date({year: 2020})).add(4, 'days').format('YYYY-MM-DD HH:mm:ss'),
+    end: moment(faker.date({ year: 2020 })).add(4, 'days').format('YYYY-MM-DD HH:mm:ss')
   }
 })
