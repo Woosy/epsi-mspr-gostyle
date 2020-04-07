@@ -14,6 +14,7 @@ services:
       - /usr/src/app/node_modules
     ports:
       - "3333:3333"
+    network_mode: host
     depends_on:
       - gostyle-database
     command: npm run dev
@@ -25,6 +26,7 @@ services:
     restart: unless-stopped
     ports:
       - "5432:5432"
+    network_mode: host
     environment:
       POSTGRES_USER: username
       POSTGRES_PASSWORD: password
