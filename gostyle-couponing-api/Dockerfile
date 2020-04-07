@@ -1,6 +1,6 @@
 # Node latest LTS 10.15.3 with alpine
 # (a lightweight distribution)
-FROM node:10.15.3-alpine
+FROM node:12.16.1-alpine
 LABEL maintainer="GoStyle"
 
 # add some required packages
