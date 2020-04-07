@@ -19,7 +19,4 @@ const Route = use('Route')
 
 Route.get('/', () => ({ version: packageJson.version, uptime: process.uptime() }))
 
-Route.get('/coupons', 'CouponController.getAll')
 Route.get('/coupons/:code', 'CouponController.getByCode')
-
-Route.post('/coupons', 'CouponController.create').validator('StoreCoupon')
