@@ -9,7 +9,9 @@
     "dev": "./node_modules/.bin/adonis serve --dev",
     "lint": "./node_modules/.bin/eslint ./",
     "lint:fix": "./node_modules/.bin/eslint ./ --fix",
-    "test": "node ace test"
+    "test": "node ace test",
+    "test:coverage": "./node_modules/.bin/nyc --reporter=html --reporter=text-summary node ace test",
+    "test:coveralls": "./node_modules/.bin/nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [],
   "author": "",
@@ -31,12 +33,14 @@
   },
   "devDependencies": {
     "@adonisjs/cli": "^4.0.12",
+    "coveralls": "^3.0.11",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "nyc": "^15.0.1"
   },
   "autoload": {
     "App": "./app"
