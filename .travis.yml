@@ -5,9 +5,15 @@ notifications:
 
 node_js:
   - "12.16.1"
-
+      
 services:
   - postgresql
+
+addons:
+  postgresql: '9.4'
+  apt:
+    packages:
+      - postgresql-server-dev-9.4
 
 before_install:
   - cd gostyle-couponing-api
