@@ -1,0 +1,32 @@
+language: node_js
+
+notifications:
+  email: false
+
+node_js:
+  - "12.16.1"
+
+services:
+  - postgresql
+
+before_script:
+  - cp -a .env.example .env
+  - psql -c "CREATE DATABASE gostyle;" -U postgres
+  - psql -c "CREATE USER gostyle WITH PASSWORD 'password';" -U postgres
+
+install: npm install
+
+jobs:
+  include:
+    - stage: Tests
+      if: |
+        branch = develop AND \
+        tag IS blank
+      script: 
+        - npm run lint
+        - npm run test:coverage
+        - npm run test:coveralls
+
+cache:
+  directories:
+    - node_modules
