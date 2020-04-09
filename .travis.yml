@@ -16,8 +16,8 @@ install: npm install
 
 before_script:
   - cp -a .env.example .env
-  - psql -c "CREATE DATABASE gostyle;" -U postgres
-  - psql -c "CREATE USER gostyle WITH PASSWORD 'password';" -U postgres
+  - psql -c "CREATE DATABASE gostyle;" -U root
+  - psql -c "CREATE USER gostyle WITH PASSWORD 'password';" -U root
 
 jobs:
   include:
