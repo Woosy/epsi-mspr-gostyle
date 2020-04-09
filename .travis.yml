@@ -16,8 +16,9 @@ install: npm install
 
 before_script:
   - cp -a .env.example .env
-  - psql -c "CREATE DATABASE gostyle;" -U root
-  - psql -c "CREATE USER gostyle WITH PASSWORD 'password';" -U root
+  - psql -c 'create extension if not exists "uuid-ossp";' -U postgres
+  - psql -c "CREATE DATABASE gostyle;" -U postgres
+  - psql -c "CREATE USER gostyle WITH PASSWORD 'password';" -U postgres
 
 jobs:
   include:
