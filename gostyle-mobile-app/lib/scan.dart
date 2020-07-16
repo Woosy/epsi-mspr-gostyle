@@ -56,10 +56,10 @@ class _ScanState extends State<ScanScreen> {
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(() {
-          this.barcode = 'The user did not grant the camera permission!';
+          this.barcode = 'L\'utilisateur n\'a pas autorisé la caméra!';
         });
       } else {
-        setState(() => this.barcode = 'Unknown error: $e');
+        setState(() => this.barcode = 'Erreur inconnue: $e');
       }
     } on FormatException{
       setState(() => this.barcode = 'null (User returned using the "back"-button before scanning anything. Result)');

@@ -37,7 +37,7 @@ String barcode = "";
             Container(
               margin: EdgeInsets.only(top: 20.0),
               child: Text(
-                'Erreur Code',
+                'Code Invalide',
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.w500,

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:mspr/error.dart';
@@ -6,6 +8,8 @@ import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
 import 'package:mspr/success.dart';
 import 'util.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 void main() => runApp(MyApp());
 
@@ -42,6 +46,19 @@ class HomePage extends State<Home> {
         appBar: AppBar(
           title: Text("Go-Style"),
           backgroundColor: CustomColors.HeaderBlueDark,
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {
+                  getHistory();
+                },
+                child: Icon(
+                    Icons.history
+                ),
+              )
+            )
+          ],
         ),
         body: Center(
           child: Container(
@@ -167,6 +184,11 @@ class HomePage extends State<Home> {
     var response = await http.get(url);
 
     if (response.statusCode == 200) {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      List<String> list = prefs.getStringList("coupons");
+      list.add(jsonDecode(response.body)['coupon'].toString().toUpperCase() + " - " + jsonDecode(response.body)['discount'].toString() + "%");
+      await prefs.setStringList('coupons', list);
+
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => Success(data: response.body)),
@@ -177,6 +199,48 @@ class HomePage extends State<Home> {
         MaterialPageRoute(builder: (context) => Error(data: response.body)),
       );
     }
+  }
+
+  void getHistory() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      List<String> list = List<String>();
+      String texteCoupons = "";
+
+      if (prefs.getStringList('coupons') != null && prefs.getStringList('coupons').length != 0) {
+        list = prefs.getStringList('coupons');
+        list.forEach((element) {
+          if (list.indexOf(element) == list.length - 1) {
+            texteCoupons += "• " + element;
+          } else {
+            texteCoupons += "• " + element + "\n";
+          }
+        });
+      } else {
+        texteCoupons = "Vous n'avez pas encore scanné de coupon";
+      }
+
+      // set up the button
+      Widget okButton = FlatButton(
+        child: Text("OK"),
+        onPressed: () { 
+          Navigator.pop(context, true);
+        },
+      );
+      // set up the AlertDialog
+      AlertDialog alert = AlertDialog(
+        title: Text("Historique des scans"),
+        content: Text(texteCoupons),
+        actions: [
+          okButton,
+        ],
+      );
+      // show the dialog
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        },
+      );
   }
 }
 
