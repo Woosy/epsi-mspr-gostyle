@@ -30,8 +30,13 @@ Nous avons réalisé une application mobile et un webservice (API REST), et nous
 ## Technologies utilisées
 
 <img src="https://secure.meetupstatic.com/photos/event/4/a/b/5/600_466219125.jpeg" alt="Logo Flutter" height="100" width="100"/>
-<img src="https://symbols.getvecta.com/stencil_73/32_adonisjs-icon.f7379b6649.svg" alt="Logo Adonis.js" height="100" width="100"/>
-<img src="https://www.docker.com/sites/default/files/d8/2019-07/Moby-logo.png" alt="Logo Docker" height="100" width="120"/>
-<img src="https://travis-ci.org/images/logos/TravisCI-Mascot-1.png" alt="Logo Travis" height="100" width="120"/>
+Flutter
 <br>
-| ----- Flutter ---- | ---- Adonis.js ---- | ------ Docker -------- | ------- Travis-CI ------- |
+<img src="https://symbols.getvecta.com/stencil_73/32_adonisjs-icon.f7379b6649.svg" alt="Logo Adonis.js" height="100" width="100"/>
+Adonis.js
+<br>
+<img src="https://www.docker.com/sites/default/files/d8/2019-07/Moby-logo.png" alt="Logo Docker" height="100" width="120"/>
+Docker
+<br>
+<img src="https://travis-ci.org/images/logos/TravisCI-Mascot-1.png" alt="Logo Travis" height="100" width="120"/>
+Travis-CI
